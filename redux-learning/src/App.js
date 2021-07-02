@@ -1,8 +1,8 @@
 import './App.css';
-import Student from "./REDUX/components/Student";
+import Student from "./components/Student";
 import {useSelector, useDispatch} from 'react-redux';
-import { addStudent } from './REDUX/redux/actions/studentAction';
-import { fetchFollowers } from './REDUX/redux/actions/githubAction';
+import { addStudent } from './redux/actions/studentAction';
+import { fetchFollowers } from './redux/actions/githubAction';
 
 function App() {
   const dispatch = useDispatch();
