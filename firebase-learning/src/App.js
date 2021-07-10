@@ -62,9 +62,9 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={ctaUploadHandler}>Upload Data to Firebase</button>
-      <button onClick={ctaFetchHandler}>Fetch Data from Firebase</button>
-      <button onClick={ctaDeleteHandler}>Delete Data from Firebase</button>
+      <button onClick={ctaUploadHandler}>Upload Data to Firebase</button> <br/><br/>
+      <button onClick={ctaFetchHandler}>Fetch Data from Firebase</button> <br/><br/>
+      <button onClick={ctaDeleteHandler}>Delete Data from Firebase</button> <br/><br/>
       <button onClick={ctaUpdateHandler}>Update Data in Firebase</button>
     </div>
   );
