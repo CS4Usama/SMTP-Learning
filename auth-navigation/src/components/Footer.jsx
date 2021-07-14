@@ -1,6 +1,6 @@
 export default function Footer() {
     return(
-        <div>
+        <div style={{padding:20}}>
             Footer
         </div>
     );
