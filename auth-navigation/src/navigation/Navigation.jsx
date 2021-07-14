@@ -15,7 +15,7 @@ export default function Navigation() {
                 <Route exact path="/">
                     <Home />
                 </Route>
-                
+
                 {/* <Route path="home">
                     <Home />
                 </Route> */}
