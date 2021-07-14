@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRouting from "./PrivateRouting";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Home from '../modules/home/Home';
@@ -12,11 +13,8 @@ export default function Navigation() {
             <Header />
 
             <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
 
-                {/* <Route path="/home">
+                {/* <Route path="/">
                     <Home />
                 </Route> */}
 
@@ -27,6 +25,12 @@ export default function Navigation() {
                 <Route path="/signup">
                     <Signup />
                 </Route>
+
+                {/* Private/Protected Routes */}
+                <PrivateRouting exact path="/home" auth={true}>
+                    <Home />
+                </PrivateRouting>
+
             </Switch>
 
             <Footer />
