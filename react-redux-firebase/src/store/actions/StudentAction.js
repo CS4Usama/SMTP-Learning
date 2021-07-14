@@ -30,3 +30,57 @@ export const fetchStudents = (setLoading) => async(dispatch, previousState) => {
         setLoading(false);
     }
 }
+
+
+// Add Students in Firebase Action
+export const addStudent = (data, setLoading) => async(dispatch, previousState) => {
+    try {
+        setLoading(true);
+        await db.collection('students').add(data);
+        dispatch({
+            type: ADD_STUDENT,
+            payload: data
+        });
+    } catch(err) {
+        console.log("Exception is: ", err);
+        alert(err);
+    } finally {
+        setLoading(false);
+    }
+}
+
+
+// Delete Students from Firebase Action
+export const delStudent = (docID, setLoading) => async(dispatch, previousState) => {
+    try {
+        setLoading(true);
+        await db.collection('students').doc(docID).delete();
+        dispatch({
+            type: DELETE_STUDENT,
+            payload: docID
+        });
+    } catch(err) {
+        console.log("Exception is: ", err);
+        alert(err);
+    } finally {
+        setLoading(false);
+    }
+}
+
+
+// Update Students in Firebase Action
+export const updateStudent = (docID, data, setLoading) => async(dispatch, previousState) => {
+    try {
+        setLoading(true);
+        await db.collection('students').doc(docID).update(data);
+        dispatch({
+            type: UPDATE_STUDENT,
+            payload: {docID,data}
+        });
+    } catch(err) {
+        console.log("Exception is: ", err);
+        alert(err);
+    } finally {
+        setLoading(false);
+    }
+}

@@ -4,7 +4,7 @@ import {useStudent} from "./useStudent";
 
 export default function Student() {
 
-    const [student, msg, name, rollNo, stdClass, batch, flag, ctaHandler, delHandler, updateHandler, ctaUpdateHandler, setName, setRollNo, setStdClass, setBatch] = useStudent();
+    const [student, msg, name, rollNo, stdClass, batch, flag, loading, submitLoading, ctaHandler, delHandler, updateHandler, ctaUpdateHandler, setName, setRollNo, setStdClass, setBatch] = useStudent();
     
     return(
         <div>
@@ -19,7 +19,7 @@ export default function Student() {
                 flag ?
                     <button onClick={ctaUpdateHandler}>update</button>
                     :
-                    <button onClick={ctaHandler}>ADD</button>
+                    <button onClick={ctaHandler}>{submitLoading ? 'loading...' : 'ADD'}</button>
             }
 
             <p style={{backgroundColor:"red", color:"white"}}> {msg} </p>
@@ -37,9 +37,12 @@ export default function Student() {
                 </tr>
                 {
                     student.map((student, index) => {
-                        return <StudentList index={index} student={student} deleteHandler={delHandler} updateHandler={updateHandler} />
+                        return <StudentList index={index} student={student} delHandler={delHandler} updateHandler={updateHandler} />
                     })
                 }
+
+                {loading && <div>Loading...</div>}
+
             </table>
             
         </div>

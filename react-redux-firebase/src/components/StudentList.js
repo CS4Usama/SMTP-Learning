@@ -7,8 +7,8 @@ function StudentList({student, index, delHandler, updateHandler}) {
             <td>{student.class}</td>
             <td>{student.batch}</td>
             {/* <td> <button onClick={()=>delHandler(student.name)}>delete</button> </td> */}
-            <td> <button onClick={()=>delHandler(index)}>delete</button> </td>
-            <td> <button onClick={()=>updateHandler(student, index)}>update</button> </td>
+            <td> <button onClick={()=>delHandler(student.docID)}>delete</button> </td>
+            <td> <button onClick={()=>updateHandler(student, student.docID)}>update</button> </td>
         </tr>
     );
 }

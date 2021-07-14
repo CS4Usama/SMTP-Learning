@@ -18,30 +18,34 @@ function StudentReducer(state=initialState, action) {
             return newState;
 
             case ADD_STUDENT:
-                // Work / Logic will be here...
+                let newStudent = state.students;
+                newStudent.push(action.payload)
                 return {
                     ...state,
-                    class: 'SMTP Web and Mobile Development',   //value updated
-                    newData: action.payload
+                    students: newStudent
                 }
 
             case UPDATE_STUDENT:
-                // Work / Logic will be here...
+                let updatedStudent = state.students.map((item) => {
+                    if(action.payload.docID === item.docID) {
+                        return {...action.payload.data, ...action.payload.docID};
+                        // return action.payload.data;
+                    } else {
+                        return item;
+                    }
+                })
                 return {
                     ...state,
-                    class: 'SMTP Web and Mobile Development',   //value updated
-                    newData: action.payload
+                    students: updatedStudent
                 }
 
             case DELETE_STUDENT:
-                // Work / Logic will be here...
-                let deleteState = {
-                    ...state,
-                    class: 'SMTP Web and Mobile Development',   //value updated
-                    newData: action.payload
-                }
+                let filteredStudents = state.students.filter((item) => item.docID !== action.payload)
                 // return state;
-                return deleteState;
+                return {
+                    ...state,
+                    students: filteredStudents
+                };
     
         default:
             return state;

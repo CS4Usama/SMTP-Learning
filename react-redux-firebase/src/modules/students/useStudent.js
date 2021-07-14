@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStudents } from "../../store/actions/StudentAction";
+import { addStudent, delStudent, fetchStudents, updateStudent } from "../../store/actions/StudentAction";
 
 
 
@@ -14,10 +14,11 @@ export function useStudent() {
     const [flag, setFlag] = useState(false);
     const [updatedIndex, setUpdatedIndex] = useState("");
     const [loading, setLoading] = useState(false);
+    const [submitLoading, setSubmitLoading] = useState(false);
 
     const dispatch = useDispatch();
 
-    // Store Data
+    // Store Data || students collection exist in firebase firestore db
     const student = useSelector(state => state.StudentReducer.students);
     console.log("Students from studentReducer", student);
     // setStudent(students);
@@ -28,25 +29,28 @@ export function useStudent() {
         dispatch(fetchStudents(setLoading))
     }, [])
 
-    // const ctaHandler = () => {
-    //     setMsg("");
-    //     if(name !== "" && rollNo !== "" && stdClass !== "" && batch !== "") {
-    //         let newStd = {
-    //             name,
-    //             rollNo,
-    //             class: stdClass,
-    //             batch
-    //         }
-    //         // setStudent([...student, newStd])
-    //         setName("");
-    //         setRollNo("");
-    //         setStdClass("");
-    //         setBatch("");
-    //     }
-    //     else {
-    //         setMsg("Some Inputs are Empty! Inputs can't be Empty.")
-    //     }
-    // }
+    const ctaHandler = () => {
+        setMsg("");
+        if(name !== "" && rollNo !== "" && stdClass !== "" && batch !== "") {
+            let newStd = {
+                name,
+                rollNo,
+                class: stdClass,
+                batch,
+                createdAt: new Date()
+            }
+
+            // Call Action to Add new Data in Firebase
+            dispatch(addStudent(newStd, setSubmitLoading))
+            setName("");
+            setRollNo("");
+            setStdClass("");
+            setBatch("");
+        }
+        else {
+            setMsg("Some Inputs are Empty! Inputs can't be Empty.")
+        }
+    }
 
     // let delHandler = (stdname) => {
     //     let delStd = student.filter((student) => {
@@ -57,53 +61,42 @@ export function useStudent() {
     //     setStudent([...delStd])
     // }
 
-    // let delHandler = (index) => {
-    //     let delStd = student.filter((student, i) => {
-    //         if(i !== index) {
-    //             return student;
-    //         }
-    //     });
-    //     // setStudent([...delStd])
-    // }
+    let delHandler = (docID) => {
+        dispatch(delStudent(docID, setLoading));
+    }
 
-    // let updateHandler = (student, index) => {
-    //     setUpdatedIndex(index);
-    //     setName(student.name);
-    //     setRollNo(student.rollNo);
-    //     setStdClass(student.class);
-    //     setBatch(student.batch);
-    //     setFlag(true);
-    // }
+    let updateHandler = (student) => {
+        setUpdatedIndex(student.docID);
+        setName(student.name);
+        setRollNo(student.rollNo);
+        setStdClass(student.class);
+        setBatch(student.batch);
+        setFlag(true);
+    }
 
-    // let ctaUpdateHandler = () => {
-    //     setMsg("");
-    //     if(name !== "" && rollNo !== "" && stdClass !== "" && batch !== "") {
-    //         let newStd = {
-    //             name,
-    //             rollNo,
-    //             class: stdClass,
-    //             batch
-    //         }
+    let ctaUpdateHandler = () => {
+        setMsg("");
+        if(name !== "" && rollNo !== "" && stdClass !== "" && batch !== "") {
+            let newStd = {
+                name,
+                rollNo,
+                class: stdClass,
+                batch
+            }
 
-    //         let updateStudents = student.map((stud, index) => {
-    //             if(updatedIndex === index) {
-    //                 return newStd;
-    //             } else {
-    //                 return stud;
-    //             }
-    //         });
+            dispatch(updateStudent(updatedIndex, newStd, setLoading));
 
             // setStudent([...updateStudents])
-        //     setName("");
-        //     setRollNo("");
-        //     setStdClass("");
-        //     setBatch("");
-        //     setFlag(false)
-        // }
-        // else {
-        //     setMsg("Some Inputs are Empty! Inputs can't be Empty.")
-        // }
-    // }
+            setName("");
+            setRollNo("");
+            setStdClass("");
+            setBatch("");
+            setFlag(false)
+        }
+        else {
+            setMsg("Some Inputs are Empty! Inputs can't be Empty.")
+        }
+    }
 
-    return [student, msg, name, rollNo, stdClass, batch, flag,  setName, setRollNo, setStdClass, setBatch];
+    return [student, msg, name, rollNo, stdClass, batch, flag, loading, submitLoading, ctaHandler, delHandler, updateHandler, ctaUpdateHandler, setName, setRollNo, setStdClass, setBatch];
 }
