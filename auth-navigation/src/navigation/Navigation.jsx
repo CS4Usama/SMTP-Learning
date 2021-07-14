@@ -14,9 +14,9 @@ export default function Navigation() {
 
             <Switch>
 
-                {/* <Route path="/">
-                    <Home />
-                </Route> */}
+                <Route exact path="/">
+                    <div>Cyber Hawk</div>
+                </Route>
 
                 <Route path="/login">
                     <Login />
@@ -27,7 +27,7 @@ export default function Navigation() {
                 </Route>
 
                 {/* Private/Protected Routes */}
-                <PrivateRouting exact path="/home" auth={true}>
+                <PrivateRouting path="/home" auth={false}>
                     <Home />
                 </PrivateRouting>
 
