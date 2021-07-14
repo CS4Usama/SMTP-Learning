@@ -25,7 +25,7 @@ export function useStudent() {
     // end of Store Data
 
     useEffect(() => {
-        // Action Call for Fetching Students
+        // Action Call for Fetching Students on Reload
         dispatch(fetchStudents(setLoading))
     }, [])
 

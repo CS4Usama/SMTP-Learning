@@ -1,6 +1,7 @@
 import { FETCH_STUDENT, ADD_STUDENT, UPDATE_STUDENT, DELETE_STUDENT } from "../constants/Type";
 import {db} from '../../config/Firebase';
 
+
 // Fetch Students from Firebase Action
 export const fetchStudents = (setLoading) => async(dispatch, previousState) => {
     try {
@@ -32,7 +33,7 @@ export const fetchStudents = (setLoading) => async(dispatch, previousState) => {
 }
 
 
-// Add Students in Firebase Action
+// Add Student in Firebase Action
 export const addStudent = (data, setLoading) => async(dispatch, previousState) => {
     try {
         setLoading(true);
@@ -50,7 +51,7 @@ export const addStudent = (data, setLoading) => async(dispatch, previousState) =
 }
 
 
-// Delete Students from Firebase Action
+// Delete Student in Firebase Action
 export const delStudent = (docID, setLoading) => async(dispatch, previousState) => {
     try {
         setLoading(true);
@@ -68,7 +69,7 @@ export const delStudent = (docID, setLoading) => async(dispatch, previousState) 
 }
 
 
-// Update Students in Firebase Action
+// Update Student in Firebase Action
 export const updateStudent = (docID, data, setLoading) => async(dispatch, previousState) => {
     try {
         setLoading(true);
