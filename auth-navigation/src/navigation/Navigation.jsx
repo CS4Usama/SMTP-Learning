@@ -35,7 +35,7 @@ export default function Navigation() {
                 <PrivateRouting path="/home" auth={authState}>
                     <Home />
                 </PrivateRouting>
-                <PrivateRouting path="/profile" auth={authState}>
+                <PrivateRouting path="/profile" auth={authState}>       {/* <PrivateRoute /> */}
                     <Profile />
                 </PrivateRouting>
 
