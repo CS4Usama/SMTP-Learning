@@ -13,12 +13,12 @@ export default function Navigation() {
 
             <Switch>
                 <Route exact path="/">
-
-                </Route>
-
-                <Route path="home">
                     <Home />
                 </Route>
+                
+                {/* <Route path="home">
+                    <Home />
+                </Route> */}
 
                 <Route path="login">
                     <Login />
