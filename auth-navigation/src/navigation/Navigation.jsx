@@ -16,15 +16,15 @@ export default function Navigation() {
                     <Home />
                 </Route>
 
-                {/* <Route path="home">
+                {/* <Route path="/home">
                     <Home />
                 </Route> */}
 
-                <Route path="login">
+                <Route path="/login">
                     <Login />
                 </Route>
 
-                <Route path="signup">
+                <Route path="/signup">
                     <Signup />
                 </Route>
             </Switch>
