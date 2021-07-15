@@ -23,6 +23,23 @@ export const doLogin = (email, password) => async(dispatch) => {
 }
 
 
+export const doSignup = (user) => async(dispatch) => {
+    try {
+        // Firebase Login Code
+        const userCredential = await auth.createUserWithEmailAndPassword(user.email, user.password);
+
+        dispatch({
+            type: LOGIN,
+            payload: user
+        });
+    } catch(err) {
+        console.log("Exception is: ", err);
+        // alert(err);
+        alert(JSON.stringify(err));
+    }
+}
+
+
 export const doLogout = () => async(dispatch) => {
     try {
         // Firebase Login Code

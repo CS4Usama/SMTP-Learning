@@ -29,9 +29,9 @@ export default function Navigation() {
                     <Login />
                 </CustomPublicRouting>
 
-                <Route path="/signup">
+                <CustomPublicRouting path="/signup" auth={authState}>
                     <Signup />
-                </Route>
+                </CustomPublicRouting>
 
                 {/* Private/Protected Routes */}
                 <PrivateRouting path="/home" auth={authState}>
