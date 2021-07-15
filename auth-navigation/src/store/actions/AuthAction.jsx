@@ -1,4 +1,4 @@
-import {auth} from '../../config/Firebase';
+import {auth, db} from '../../config/Firebase';
 
 export const LOGIN = 'Login';
 export const LOGOUT = 'Logout';
@@ -28,6 +28,12 @@ export const doSignup = (user) => async(dispatch) => {
         // Firebase Login Code
         const userCredential = await auth.createUserWithEmailAndPassword(user.email, user.password);
         var userData = userCredential.user;
+
+        // DB Firestore
+        await db.collection("users").add({
+            ...user,
+            uid: user.uid
+        });
 
         dispatch({
             type: LOGIN,
