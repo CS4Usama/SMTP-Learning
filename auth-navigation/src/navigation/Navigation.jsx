@@ -11,7 +11,7 @@ import Signup from '../modules/auth/signup/Signup';
 
 export default function Navigation() {
 
-    const authState = true;
+    const authState = false;
 
     return(
         <Router>
