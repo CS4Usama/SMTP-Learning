@@ -7,11 +7,13 @@ import Profile from "../modules/profile/Profile";
 import Home from '../modules/home/Home';
 import Login from '../modules/auth/login/Login';
 import Signup from '../modules/auth/signup/Signup';
+import { useSelector } from "react-redux";
 
 
 export default function Navigation() {
 
-    const authState = false;
+    // const authState = false;
+    const authState = useSelector(state => state.AuthReducer.isUserLoggedIn);
 
     return(
         <Router>
