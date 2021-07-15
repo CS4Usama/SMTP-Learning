@@ -28,11 +28,13 @@ export const doSignup = (user) => async(dispatch) => {
         // Firebase Login Code
         const userCredential = await auth.createUserWithEmailAndPassword(user.email, user.password);
         var userData = userCredential.user;
-
+console.log('UserData logged',user);
         // DB Firestore
         await db.collection("users").add({
             ...user,
-            uid: user.uid
+            // email: user.email,
+            // password: user.password,
+            uid: userData.uid
         });
 
         dispatch({
@@ -50,7 +52,7 @@ export const doSignup = (user) => async(dispatch) => {
 export const doLogout = () => async(dispatch) => {
     try {
         // Firebase Login Code
-        const res = await auth.signOut()
+        const res = await auth.signOut();
 
         console.log("Logout Response:", res);
 
