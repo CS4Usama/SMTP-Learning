@@ -1,9 +1,10 @@
-import {LOGIN} from '../actions/AuthAction';
+import {LOGIN, LOGOUT} from '../actions/AuthAction';
 
 
 let initialState = {
     isUserLoggedIn: false,
-    user: {}
+    // user: {}
+    user: null
 }
 
 function AuthReducer(state=initialState, action) {
@@ -14,6 +15,15 @@ function AuthReducer(state=initialState, action) {
                 ...state,
                 isUserLoggedIn: true,
                 user: action.payload
+            };
+
+        case LOGOUT:
+            // If User Login then What ?
+            return {
+                ...state,
+                isUserLoggedIn: false,
+                // user: {}
+                user: null
             };
 
         default:
