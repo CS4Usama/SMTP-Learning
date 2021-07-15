@@ -1,6 +1,6 @@
 import {LOGIN, LOGOUT} from '../actions/AuthAction';
 
-
+// We will use this 'isUserLoggedIn' Boolean Variable for checking whether User is Login or not
 let initialState = {
     isUserLoggedIn: false,
     // user: {}
