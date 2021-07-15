@@ -1,4 +1,4 @@
-import {LOGIN} from '../constants/Type';
+import {LOGIN} from '../actions/AuthAction';
 
 
 let initialState = {
@@ -9,14 +9,8 @@ let initialState = {
 function AuthReducer(state=initialState, action) {
     switch (action.type) {
         case LOGIN:
-            console.log("Data in Reducer from Fetch Action", action.payload);
-            // Work / Logic will be here...
-            let newState = {
-                ...state,
-                students: action.payload
-            }
-            // return state;
-            return newState;
+            // If User Login then What ?
+            return state;
 
         default:
             return state;

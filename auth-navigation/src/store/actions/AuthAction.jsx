@@ -1,4 +1,4 @@
-import {LOGIN} from '../constants/Type';
+export const LOGIN = 'Login';
 
 export const doLogin = (userName) => async(dispatch) => {
     try {
