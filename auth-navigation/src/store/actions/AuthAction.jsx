@@ -26,14 +26,12 @@ export const doLogin = (email, password) => async(dispatch) => {
 export const doLogout = () => async(dispatch) => {
     try {
         // Firebase Login Code
-        const userCredential = await auth.signInWithEmailAndPassword(email, password)
-        var user = userCredential.user;
+        const res = await auth.signOut()
 
-        console.log("User ID:", user.uid);
+        console.log("Logout Response:", res);
 
         dispatch({
-            type: LOGIN,
-            payload: user
+            type: LOGOUT,
         });
     } catch(err) {
         console.log("Exception is: ", err);
