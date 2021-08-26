@@ -36,6 +36,13 @@ app.get('/forget', function(req, res) {
     res.send("HELLO WORLD");
 });
 
+// else Request => If user enter wrong path or path which is not exist - always write at the end of requests
+// means sab sy last py likhain gy yeh else-Request jahan sari requests khatam hoon gi
+app.get('*', function(req, res) {
+    res.send("Route / Path does not Exist");
+    // res.sendFile();
+});
+
 
 // IP:5000/login
 
