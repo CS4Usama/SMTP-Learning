@@ -1,4 +1,4 @@
 modules.export = (req, res) => {
     // Logics
-    res.send("");
+    res.send("Auth Controller");
 }
