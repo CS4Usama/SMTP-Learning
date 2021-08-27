@@ -1,0 +1,4 @@
+modules.export = (req, res) => {
+    // Logics
+    res.send("");
+}
