@@ -1,7 +1,7 @@
 {
-  "name": "class-02",
+  "name": "class-03",
   "version": "1.0.0",
-  "description": "Learn Node.js with Express.js Wrapper",
+  "description": "Learn Node.js with Express.js Wrapper + MongoDB",
   "main": "server.js",
   "scripts": {
     "test": "test",
@@ -13,8 +13,5 @@
   "author": "Cyber Hawk",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
   }
 }
