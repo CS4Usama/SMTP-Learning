@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 function dbConnection() {
     mongoose.connect(
-        ,
-        { useNewUrlParser: true, useFindAndModify: false },
+        `mongodb+srv://hawk:123@cluster0.ntn1c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+        // { useNewUrlParser: true, useFindAndModify: false },
+        { useNewUrlParser: true },
         function(err) {
             if(err) {
                 console.log("ERROR at DB", err);
