@@ -34,7 +34,7 @@ app.use('/auth', authRoutes);
 // Server Port Listener
 app.listen('5000', (err) => {
     if(err) {
-        console.log("Something went Wrong", error);
+        console.log("Something went Wrong", err);
     } else {
         console.log("Server is Working on Port, 5000");
     }

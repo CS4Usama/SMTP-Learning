@@ -7,7 +7,7 @@ function dbConnection() {
         { useNewUrlParser: true },
         function(err) {
             if(err) {
-                console.log("ERROR at DB", err);
+                console.log("ERROR in DB Connection", err);
             } else {
                 console.log("DB Connected Successfully");
             }
