@@ -93,13 +93,21 @@ console.log(Math.max(...num));
 console.log(Math.min(...num));
 
 
-/* async   await    (Promise) */
+/* async  await    (Promise) */
+
+// let callbackFunction = () => {
+//     return 'Return by wait method';
+// }
+// let wait = async() => {
+//     await setTimeout(callbackFunction, 3000)
+// }
 
 // function wait() {
-//     setTimeout(() => {
+//     setTimeout(() => {       log=>undefined
 async function wait() {
     await setTimeout(() => {
         return 'Return by wait method';
     }, 3000);
 }
+
 console.log(wait());    // can be a backend response, API sy Data call kiya time laga Server sy aany mein is lye await aysnc ka use
