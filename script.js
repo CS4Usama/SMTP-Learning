@@ -40,3 +40,36 @@ var fun = () => {
         alert("I'm Here...")
     }
 }
+
+
+// ------------------------------------------------
+// ------------------------------------------------
+
+
+// DeStructuring
+const std = {
+    name: 'Usama',
+    rollNo: 123,
+    Uni: {
+        uniName: 'GC'
+    }
+}
+const {name, rollNo} = std;
+const {uniName} = std.Uni;
+console.log("Object Attribute:  ",std.name);
+console.log("Destructuring an Object's Attribute:  ", name);
+console.log("std.Uni.uniName   ", std.Uni.uniName);
+console.log("uniName   ", uniName);
+
+// Default Value assigned when have no value using OR operator
+let variable = std.Uni.loc;
+console.log("variable ", variable);
+variable = std.Uni.loc || 'default value is automatically assigned because of OR operator when no value (initially) assigned';
+console.log("variable ", variable);
+variable = "Usama is Variable";
+console.log("variable ", variable);
+
+// ?. => agar array hai (exist karti) to loop chalao warna nahi (Optional Chaining Operator)
+std.Uni.name?.forEach(element => {
+    console.log("elements ", element);
+})
