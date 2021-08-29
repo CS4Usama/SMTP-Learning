@@ -42,8 +42,11 @@ var fun = () => {
 }
 
 
+
 // ------------------------------------------------
 // ------------------------------------------------
+// ------------------------------------------------
+
 
 
 // DeStructuring
@@ -61,6 +64,7 @@ console.log("Destructuring an Object's Attribute:  ", name);
 console.log("std.Uni.uniName   ", std.Uni.uniName);
 console.log("uniName   ", uniName);
 
+
 // Default Value assigned when have no value using OR operator
 let variable = std.Uni.loc;
 console.log("variable ", variable);
@@ -69,7 +73,21 @@ console.log("variable ", variable);
 variable = "Usama is Variable";
 console.log("variable ", variable);
 
+
 // ?. => agar array hai (exist karti) to loop chalao warna nahi (Optional Chaining Operator)
 std.Uni.name?.forEach(element => {
     console.log("elements ", element);
 })
+
+
+// Rest Operator - When we don't know how many parameters/arguments can be used, same like spread operator but used as parameter. Makes an array of argument's values
+function fun2(...argu) {
+    console.log('argu ', argu);
+}
+fun2(1,2,'usama');
+
+
+// Math.min() and Math.max()  Math.toFixed(2)
+let num = [1,2,3,4,5,6,7]
+console.log(Math.max(...num))
+console.log(Math.min(...num))
