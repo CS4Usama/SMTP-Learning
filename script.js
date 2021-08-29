@@ -89,5 +89,16 @@ fun2(1,2,'usama');
 
 // Math.min() and Math.max()  Math.toFixed(2)
 let num = [1,2,3,4,5,6,7]
-console.log(Math.max(...num))
-console.log(Math.min(...num))
+console.log(Math.max(...num));
+console.log(Math.min(...num));
+
+
+// async   await    (Promise)
+// function wait() {
+//     setTimeout(() => {
+async function wait() {
+    await setTimeout(() => {
+        return 'Return by wait method';
+    }, 3000);
+}
+console.log(wait());    // can be a backend response, API sy Data call kiya time laga Server sy aany mein is lye await aysnc ka use
