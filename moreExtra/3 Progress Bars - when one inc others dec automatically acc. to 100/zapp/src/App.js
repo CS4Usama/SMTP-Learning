@@ -7,7 +7,7 @@ function App() {
   const [val3, setVal3] = useState(0);
 
   const onChangeHandler = (e) => {
-    var sum = parseInt(val1)+parseInt(val2)+parseInt(val3);
+    var sum = parseInt(val1) + parseInt(val2) + parseInt(val3);
     if(sum < 100) {
       var half = (100-sum)/2;
       setVal2(parseInt(val2)+Math.floor(half));
