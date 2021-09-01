@@ -16,6 +16,8 @@ function fun() {
     // document.getElementById("ans").innerHTML = sum;
 }
 
+
+
 function minus1() {
     var str = parseInt(document.getElementById("num1").value);
     document.getElementById("num1").value = --str;
