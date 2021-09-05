@@ -5,10 +5,11 @@ module.exports.signup = (req, res) => {
         res.status(400).send("All Parameters (Params) are Required");
     }
     const newUser = new authModel({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        createdAt: new Date(),
+        // name: req.body.name,
+        // email: req.body.email,
+        // password: req.body.password,
+        // createdAt: new Date(),
+        name, email, password, createdAt
     });
 
     newUser.save((error, success) => {
