@@ -17,6 +17,6 @@ module.exports.signup = (req, res) => {
         if(error) {
             res.send("Some Error Occurs while Creating an Order");
         }
-        res.send("Order added Successful");
+        res.send("Order added Successfully");
     });
 }
