@@ -11,7 +11,7 @@ module.exports.signup = (req, res) => {
         createdAt: new Date(),
     });
 
-    newOrder.save((error, success) => {
+    newUser.save((error, success) => {
         console.log("Success", success);
         console.log("Error", error);
         if(error) {
