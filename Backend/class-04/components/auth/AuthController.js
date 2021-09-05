@@ -1,4 +1,6 @@
 const authModel = require('./AuthModel');
+const jwt = require('jsonwebtoken');
+
 
 module.exports.signup = (req, res) => {
     const {name, email, password, createdAt} = req.body;
@@ -40,4 +42,8 @@ module.exports.login = (req, res) => {
     } else if(user.password !== password) {
         res.status(401).send("Your Password is Incorrect");
     }
+
+    const token = jwt.sign({foo: 'bar'}, 'shhhhh');
+    
+
 }
