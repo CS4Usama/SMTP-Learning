@@ -12,11 +12,13 @@ module.exports.signup = (req, res) => {
     });
 
     newUser.save((error, success) => {
+        /* agar aap chahty hain keh User jab Signup kary to usy Login na karna pary, direct he Signup karty
+        sath Login ho jaye to hamein yahan 'Token' lagana pary ga aur Login wali Logic likhain gy */
         console.log("Success", success);
         console.log("Error", error);
         if(error) {
             res.send("Some Error Occurs while Creating an Order");
         }
-        res.send("Order added Successfully");
+        res.status(200).send("User has been Registered / User added Successfully");
     });
 }
