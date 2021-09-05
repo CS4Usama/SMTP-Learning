@@ -29,7 +29,7 @@ module.exports.signup = (req, res) => {
 }
 
 
-module.exports.login = (req, res) => {
+module.exports.login = async (req, res) => {
     const {email, password} = req.body;
 
     if(!email || !password) {

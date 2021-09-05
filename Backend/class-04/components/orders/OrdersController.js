@@ -1,6 +1,7 @@
 const ordersModel = require('./OrdersModel');
 
 module.exports.createOrder = (req, res) => {
+    console.log("Req User", req.user);
     const newOrder = new ordersModel({
         orderID: req.body.id,
         createdAt: new Date(),

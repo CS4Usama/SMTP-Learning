@@ -2,13 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 const {createOrder, getOrder, updateOrder} = require('./OrdersController');
+// kisi Route ko login ky baghair na chalny dena is lye usky params mein verifyToken pass karain gy
+const verifyToken = require('../../middleware/AuthMiddleware');
 
 
 router.get('/', (req, res) => {
     res.json("Order Route is Working");
 });
 
-router.post('/create-order', (req, res) => {
+router.post('/create-order', verifyToken, (req, res) => {
     createOrder(req, res);
 });
 
