@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {signup} = require('./AuthController');
+const {signup, login} = require('./AuthController');
 
 // Simple Function
 router.get('/', function(req, res) {
@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 // Arrow Functions
 router.post('/login', (req, res) => {
-    res.send("Login Route");
+    login(req, res);
 });
 
 router.post('/signup', (req, res) => {

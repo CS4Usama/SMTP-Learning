@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports.signup = (req, res) => {
     const {name, email, password, createdAt} = req.body;
+    console.log("Req Body", req.body);
 
     if(!name || !email || !password || !createdAt) {
         res.status(400).send("All Parameters (Params) are Required");
@@ -22,7 +23,7 @@ module.exports.signup = (req, res) => {
         console.log("Success", success);
         console.log("Error", error);
         if(error) {
-            res.send("Some Error Occurs while Creating an Order");
+            res.status(501).send("Some Error Occurs while Creating a User");
         }
         res.status(200).send("User has been Registered / User added Successfully");
     });
@@ -36,7 +37,8 @@ module.exports.login = async (req, res) => {
         res.status(400).send("All Parameters (Params) are Required");
     }
 
-    const user = await authModel.find({email: email});
+    // const user = await authModel.find({email: email});   It will return Password Incorrect. So, we use findOne() instead of it for better understanding
+    const user = await authModel.findOne({email: email});
     if(!user) {
         res.status(401).send("User E-Mail not Found");
     } else if(user.password !== password) {
@@ -44,8 +46,17 @@ module.exports.login = async (req, res) => {
     }
 
     // const token = jwt.sign({foo: 'bar'}, 'shhhhh');
-    const token = jwt.sign(user, process.env.jwtKey, {expiresIn: '5h'});
+    // const token = await jwt.sign({...user}, process.env.jwtKey, {expiresIn: '5h'});
+    const token = await jwt.sign({email: user.email, name: user.name}, 'process.env.jwtKey', {expiresIn: '5h'});
+    console.log("Token", token);
 
-    user.token = token;
-    res.status(200).json(user);
+    let userRecord = {
+        // ...user,
+        email: user.email,
+        name: user.name,
+        token
+    }
+    // user.token = token;
+    // res.status(200).json(user);
+    res.status(200).json(userRecord);
 }
