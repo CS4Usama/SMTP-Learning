@@ -1,6 +1,8 @@
 const authModel = require('./AuthModel');
 
 module.exports.signup = (req, res) => {
+    const {name, email, password, createdAt} = req.body;
+
     if(!name || !email || !password || !createdAt) {
         res.status(400).send("All Parameters (Params) are Required");
     }
@@ -22,4 +24,20 @@ module.exports.signup = (req, res) => {
         }
         res.status(200).send("User has been Registered / User added Successfully");
     });
+}
+
+
+module.exports.login = (req, res) => {
+    const {email, password} = req.body;
+
+    if(!email || !password) {
+        res.status(400).send("All Parameters (Params) are Required");
+    }
+
+    const user = await authModel.find({email: email});
+    if(!user) {
+        res.status(401).send("User E-Mail not Found");
+    } else if(user.password !== password) {
+        res.status(401).send("Your Password is Incorrect");
+    }
 }
