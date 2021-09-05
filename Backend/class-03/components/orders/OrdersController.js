@@ -36,7 +36,7 @@ module.exports.updateOrder = (req, res) => {
             console.log("success", data);
             console.log("error", err);
             if(err) {
-                res.send("Error Occurs while Updating an ");
+                res.send("Error Occurs while Updating an Order");
             }
             res.json(data);
         }
