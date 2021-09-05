@@ -46,5 +46,6 @@ module.exports.login = (req, res) => {
     // const token = jwt.sign({foo: 'bar'}, 'shhhhh');
     const token = jwt.sign(user, process.env.jwtKey, {expiresIn: '5h'});
 
-
+    user.token = token;
+    res.status(200).json(user);
 }
