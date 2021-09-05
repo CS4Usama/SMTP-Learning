@@ -43,7 +43,8 @@ module.exports.login = (req, res) => {
         res.status(401).send("Your Password is Incorrect");
     }
 
-    const token = jwt.sign({foo: 'bar'}, 'shhhhh');
-    
+    // const token = jwt.sign({foo: 'bar'}, 'shhhhh');
+    const token = jwt.sign(user, process.env.jwtKey, {expiresIn: '5h'});
+
 
 }
