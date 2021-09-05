@@ -7,6 +7,7 @@ const dbConnection = require('./config/DB');
 // Routes List
 const ordersRoutes = require('./components/orders/OrdersRoutes');
 const authRoutes = require('./components/auth/AuthRoutes');
+const verifyToken = require('./middleware/AuthMiddleware');
 
 const app = express();
 
@@ -24,8 +25,9 @@ app.get('/', function(req, res) {
     res.send("Server is Working");
 });
 
-app.use('/orders', ordersRoutes);
 app.use('/auth', authRoutes);
+// app.use(verifyToken);    agar yahan sy karain gy to nechy wala sary middlewares login ky baghair nahi chalain gy lekin yeh zyda behtar nahi manually har route mein as a param pass karna behtar hai
+app.use('/orders', ordersRoutes);
 // IP:port/auth/login - POST
 // IP:port/orders/create-order - POST
 // IP:port/orders - GET
