@@ -1,14 +1,21 @@
 const authModel = require('./AuthModel');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 
-module.exports.signup = (req, res) => {
+module.exports.signup = async (req, res) => {
     const {name, email, password, createdAt} = req.body;
     console.log("Req Body", req.body);
 
     if(!name || !email || !password || !createdAt) {
         res.status(400).send("All Parameters (Params) are Required");
     }
+
+    const user = await authModel.findOne({email: email});
+    if(user) {
+        res.status(400).send("User E-Mail Already Registered");
+    }
+
     const newUser = new authModel({
         // name: req.body.name,
         // email: req.body.email,
