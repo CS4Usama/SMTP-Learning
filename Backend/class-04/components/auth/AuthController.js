@@ -16,12 +16,15 @@ module.exports.signup = async (req, res) => {
         res.status(400).send("User E-Mail Already Registered");
     }
 
+    const encryptedPassword = await bcrypt.hash(password, 10);      // 10 => Hash/Algorithim
+    console.log("Encrypted Password: ", encryptedPassword);
+
     const newUser = new authModel({
         // name: req.body.name,
         // email: req.body.email,
         // password: req.body.password,
         // createdAt: new Date(),
-        name, email, password, createdAt
+        name, email, password: encryptedPassword, createdAt
     });
 
     newUser.save((error, success) => {
@@ -48,7 +51,7 @@ module.exports.login = async (req, res) => {
     const user = await authModel.findOne({email: email});
     if(!user) {
         res.status(401).send("User E-Mail not Found");
-    } else if(user.password !== password) {
+    } else if(! await bcrypt.compare(password, user.password)) {
         res.status(401).send("Your Password is Incorrect");
     }
 
