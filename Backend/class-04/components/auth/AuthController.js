@@ -57,7 +57,7 @@ module.exports.login = async (req, res) => {
 
     // const token = jwt.sign({foo: 'bar'}, 'shhhhh');
     // const token = await jwt.sign({...user}, process.env.jwtKey, {expiresIn: '5h'});
-    const token = await jwt.sign({email: user.email, name: user.name}, 'process.env.jwtKey', {expiresIn: '5h'});
+    const token = await jwt.sign({email: user.email, name: user.name}, process.env.jwtKey, {expiresIn: '5h'});
     console.log("Token", token);
 
     let userRecord = {
