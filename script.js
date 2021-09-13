@@ -125,4 +125,7 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 // Callback Hell => Callback ky andar callback , phir usky andar callback and so on...
 // Callback time lagata hai run hony mein is lye iski coding ky hisab sy agli lines of code chal jati hai aur jab yeh call back run hony ky qabil ho jata hai tab yeh execute hota hai utni deer is function sy bahir wali lines execute hoti rehti hain
 
-// Promise yeh keh main vada karta hoon run ho jaon ga mujy callback function na do balkeh .then karo without passing error
+// Promise  =>  yeh keh main vada karta hoon run ho jaon ga mujy callback function na do balkeh .then karo without passing error
+
+// asnyc await  =>  Non-Blocking JS ko Blocking JS karna (JS ki Nature Change karna = Asynchronous ko kuch had tak Synchronous banana). yani kisi jagah cheezo ko sequence wise run karvana agarchy us ny time lagana jaisy files reading mein lekin hum chahty hain keh jab aik complete run ho jye then dosri chaly
+
