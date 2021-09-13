@@ -111,3 +111,18 @@ async function wait() {
 }
 
 console.log(wait());    // can be a backend response, API sy Data call kiya time laga Server sy aany mein is lye await aysnc ka use
+
+
+
+// _______________________________________
+
+/* CodeWithHarry */
+
+// 5 JavaScript Concepts Everyone Should Learn! 🔥         https://www.youtube.com/watch?v=xVpaF8527Qg
+
+// JavaScipt ki nature Asynchronous hai yeh jis line of code ko run karny mein time lagta hai usky lye rukta nahi hai balkeh next code execute karta rehta hai aur phir jab pichly code yani aksar callback function ki execution khatam usy run karva deta hai, halankeh yeh time hamary lye to bhot kam hai lekin Interpreter ky lye bhot zyda hai.
+
+// Callback Hell => Callback ky andar callback , phir usky andar callback and so on...
+// Callback time lagata hai run hony mein is lye iski coding ky hisab sy agli lines of code chal jati hai aur jab yeh call back run hony ky qabil ho jata hai tab yeh execute hota hai utni deer is function sy bahir wali lines execute hoti rehti hain
+
+// Promise yeh keh main vada karta hoon run ho jaon ga mujy callback function na do balkeh .then karo without passing error
