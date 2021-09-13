@@ -115,7 +115,6 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 
 
 // _______________________________________
-
 /* CodeWithHarry */
 
 // 5 JavaScript Concepts Everyone Should Learn! 🔥         https://www.youtube.com/watch?v=xVpaF8527Qg
@@ -123,11 +122,15 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 // JavaScipt ki nature Asynchronous hai yeh jis line of code ko run karny mein time lagta hai usky lye rukta nahi hai balkeh next code execute karta rehta hai aur phir jab pichly code yani aksar callback function ki execution khatam usy run karva deta hai, halankeh yeh time hamary lye to bhot kam hai lekin Interpreter ky lye bhot zyda hai.
 
 // Callback Hell => Callback ky andar callback , phir usky andar callback and so on...
-// Callback time lagata hai run hony mein is lye iski coding ky hisab sy agli lines of code chal jati hai aur jab yeh call back run hony ky qabil ho jata hai tab yeh execute hota hai utni deer is function sy bahir wali lines execute hoti rehti hain
+// Callback time lagata hai run hony mein is lye iski coding ky hisab sy agli lines of code chal jati hain aur jab yeh call back run hony ky qabil ho jata hai tab yeh execute hota hai utni deer is function sy bahir wali lines execute hoti rehti hain
 
 // Promise  =>  yeh keh main vada karta hoon run ho jaon ga mujy callback function na do balkeh .then karo without passing error
 
 // asnyc await  =>  Non-Blocking JS ko Blocking JS karna (JS ki Nature Change karna = Asynchronous ko kuch had tak Synchronous banana). yani kisi jagah cheezo ko sequence wise run karvana agarchy us ny time lagana jaisy files reading mein lekin hum chahty hain keh jab aik complete run ho jye then dosri chaly
 
-// .map  =>  koi bhi kaam Array ky har individual index par karna aur last mein aik complete array return. Original Array not effected.
+// .map  =>  koi bhi kaam Array ky har individual index/element par karna aur last mein aik complete array return. Original Array not effected.
 
+// .reduce   Array Method
+
+// == Interpreter parses both sides into same dataTypes, then processed     1 == '1'  => TRUE
+// === only processed if both sides have same dataTypes     1 === '1'  => FALSE
