@@ -129,3 +129,5 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 
 // asnyc await  =>  Non-Blocking JS ko Blocking JS karna (JS ki Nature Change karna = Asynchronous ko kuch had tak Synchronous banana). yani kisi jagah cheezo ko sequence wise run karvana agarchy us ny time lagana jaisy files reading mein lekin hum chahty hain keh jab aik complete run ho jye then dosri chaly
 
+// .map  =>  koi bhi kaam Array ky har individual index par karna aur last mein aik complete array return. Original Array not effected.
+
