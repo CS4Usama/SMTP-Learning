@@ -49,6 +49,10 @@ var fun = () => {
 
 
 
+// undefined + <any Number> = NaN
+// undefined + 1 = NaN
+
+
 // DeStructuring
 const std = {
     name: 'Usama',
