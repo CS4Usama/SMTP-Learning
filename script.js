@@ -136,5 +136,5 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 
 // .reduce   Array Method
 
-// == Interpreter parses both sides into same dataTypes, then processed     1 == '1'  => TRUE
+// == Interpreter parses both sides into same dataTypes, then processed     1 == '1'  => TRUE  –  This is known as Type Coercion (Type Conversion).
 // === only processed if both sides have same dataTypes     1 === '1'  => FALSE
