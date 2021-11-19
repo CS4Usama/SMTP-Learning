@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useQuery, useLazyQuery, gql } from '@apollo/client';
+import { useQuery, useLazyQuery, useMutation, gql } from '@apollo/client';
 
 const QUERY_ALL_USERS = gql`
     query GetAllUsers {
@@ -32,13 +32,29 @@ const GET_MOVIE_BY_NAME = gql`
         }
     }
 `;
+const CREATE_USER_MUTATION = gql`
+    mutation CreateUser($input: CreateUserInput!) {
+        createUser(input: $input) {
+            id
+            name
+        }
+    }
+`;
 
 
 export default function DisplayData() {
     const [movieSearch, setMovieSearch] = useState('');
-    const { data, loading, error } = useQuery(QUERY_ALL_USERS);
+    // Create User States
+    const [name, setName] = useState('');
+    const [userName, setUserName] = useState('');
+    const [age, setAge] = useState('');
+    const [nationality, setNationality] = useState('');
+
+    const { data, loading, error, refetch } = useQuery(QUERY_ALL_USERS);
     const { data: movieData } = useQuery(QUERY_ALL_MOVIES);
     const [ fetchMovieData, {data: movieSearchedData, error: movieSearchedError} ] = useLazyQuery(GET_MOVIE_BY_NAME);
+
+    const [createUser] = useMutation(CREATE_USER_MUTATION);
 
     if(loading) {
         return <h3>Data is Loading...</h3>
@@ -53,6 +69,27 @@ export default function DisplayData() {
 
     return(
         <div>
+
+            <div>
+                <input type='text' placeholder='Name' onChange={(e) => setName(e.target.value)} />
+                <input type='text' placeholder='Username' onChange={(e) => setUserName(e.target.value)} />
+                <input type='number' placeholder='Age' onChange={(e) => setAge(e.target.value)} />
+                <input type='text' placeholder='Nationality' onChange={(e) => setNationality(e.target.value.toUpperCase())} />
+                {/* We can also write 'age' instead 'age:age' and inside onClick '()' is an anonymous function. */}
+                <button
+                    onClick={() => {
+                        createUser({
+                            variables: {
+                                input: {name:name, userName, age:Number(age), nationality:nationality}
+                            },
+                        });
+                        refetch();
+                    }}
+                >
+                    Create User
+                </button>
+            </div>
+
             <h3>USERS</h3>
             {
                 data &&
