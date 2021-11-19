@@ -42,6 +42,7 @@ const typeDefs = gql`
         # createUser(user: User!): User!    If we use this, then we don't need input. But its drawback is that we can't modify or change our inputs like making it optional or giving some default values.
         createUser(input: CreateUserInput!): User
         updateUserName(input: UpdateUserNameInput!): User
+        # Don't need to make delete input logic because it has only one argument which is the user ID.
         deleteUser(id: ID!): User
     }
 

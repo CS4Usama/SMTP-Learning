@@ -44,7 +44,7 @@ const resolvers = {
         updateUserName: (parent, args) => {
             // const id = args.input.id;
             // const newUserName = args.input.newUserName;
-            const {id, newUserName} = args.input;
+            const {id, newUserName} = args.input;   // Destructuring here
             let updatedUser;
             UserList.forEach((user) => {
                 if(user.id === Number(id)) {
@@ -57,7 +57,8 @@ const resolvers = {
         deleteUser: (parent, args) => {
             const id = args.id;
             _.remove(UserList, (user) => user.id === Number(id));
-            return null;
+            // return null;
+            return 'User Deleted Successfully';
         },
     },
 };
