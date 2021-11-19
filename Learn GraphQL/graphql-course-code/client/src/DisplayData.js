@@ -93,6 +93,7 @@ export default function DisplayData() {
                     {
                         movieSearchedData ?
                             <div>
+                                <p>Movie ID: {movieSearchedData.movie.id}</p>
                                 <p>Movie Name: {movieSearchedData.movie.name}</p>
                                 <p>Year of Publication: {movieSearchedData.movie.yearOfPublication}</p>
                                 <p>Is In Theater: {movieSearchedData.movie.isInTheaters}</p>
