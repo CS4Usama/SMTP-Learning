@@ -4,8 +4,9 @@ const _ = require('lodash');
 const resolvers = {
     Query: {
         // USER RESOLVERS
-        // users() {
-        users: () => {
+        users: (parent, args, context) => {
+            console.log(context)
+        // users: () => {
             return UserList;
         },
         user: (parent, args) => {
