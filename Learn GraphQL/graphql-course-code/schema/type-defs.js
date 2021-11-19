@@ -25,6 +25,26 @@ const typeDefs = gql`
         movie(name: String!): Movie!
     }
 
+
+    input CreateUserInput {
+        name: String!
+        userName: String!
+        # age: Int = 18
+        age: Int!
+        nationality: Nationality = PAKISTAN
+    }
+    input UpdateUserNameInput {
+        id: ID!
+        newUserName: String!
+    }
+
+    type Mutation {
+        # createUser(user: User!): User!    If we use this, then we don't need input. But its drawback is that we can't modify or change our inputs like making it optional or giving some default values.
+        createUser(input: CreateUserInput!): User
+        updateUserName(input: UpdateUserNameInput!): User
+        deleteUser(id: ID!): User
+    }
+
     enum Nationality {
         PAKISTAN
         USA
