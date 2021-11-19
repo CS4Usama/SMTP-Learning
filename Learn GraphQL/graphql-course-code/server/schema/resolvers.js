@@ -4,10 +4,13 @@ const _ = require('lodash');
 const resolvers = {
     Query: {
         // USER RESOLVERS
-        users: (parent, args, context) => {
-            console.log(context)
-        // users: () => {
-            return UserList;
+        // users: (parent, args, context) => {
+        //     console.log(context)
+        users: () => {
+            // return UserList;
+            if(UserList)
+                return { users: UserList }
+            return { message: "Yo, there was an error" }
         },
         user: (parent, args) => {
             
@@ -61,6 +64,17 @@ const resolvers = {
             // return null;
             return 'User Deleted Successfully';
         },
+    },
+
+    UsersResult: {
+        __resolveType(obj) {
+            if(obj.users) {
+                return 'UsersSuccessfulResult';
+            }  if(obj.message) {
+                return 'UsersErrorResult';
+            }
+            return null
+        }
     },
 };
 
