@@ -1,4 +1,5 @@
 import { useRouter } from "next/dist/client/router";
+import { useEffect } from "react";
 
 
 const ErrorPage = () => {
@@ -6,6 +7,16 @@ const ErrorPage = () => {
     const ctaHandler = () => {
         router.push('/');
     }
+
+    // Instant Redirect--->
+    // useEffect(() => {
+    //     router.push('/');
+    // }, []);
+    useEffect(() => {
+        setTimeout(() => {
+            router.push('/');
+        }, 5000);
+    }, []);
 
     return(
         <div>
