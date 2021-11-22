@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.custom-home-error-style {
+  color: red;
+}
