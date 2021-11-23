@@ -5,7 +5,19 @@ import Image from 'next/image';
 import Head from 'next/head';
 
 
-export default function Home() {
+export const getStaticProps = async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await res.json();      // Objects Array
+    return {
+        props: {
+            // data           // data: data
+            usama: data      // Key Pair Value
+        },
+    }
+}
+
+
+export default function Home({usama}) {
     return (
         <div className={styles.container}>
             <Head>
@@ -28,6 +40,18 @@ export default function Home() {
 
             <Image src='/favicon.ico' alt='some image' width='100' height='100' />
             <Image src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg' alt='some image' width='100' height='100' />
+        
+            {
+                usama.map((elem) => {
+                    return(
+                        <div key={elem.id}>
+                            <h6>ID: {elem.id}</h6>
+                            <h5>TITLE: {elem.title}</h5>
+                            <h5>BODY: {elem.body}</h5>
+                        </div>
+                    );
+                })
+            }
         </div>
     );
 }
