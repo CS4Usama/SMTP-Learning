@@ -34,7 +34,7 @@ export default function Home({usama}) {
 
             {/* Simple Linking or Routing using Anchor Tag */}
             {/* <a href='/'>Home</a> */}
-            <a href='/blog/further'>Simple Link </a>
+            {/* <a href='/blog/further'>Simple Link </a> */}
             {/* Next.js Routing */}
             <Link href='/blog/further'> Next.js Route</Link>
 
