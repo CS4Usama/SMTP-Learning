@@ -42,7 +42,7 @@ export default function Home({usama}) {
             <Image src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg' alt='some image' width='100' height='100' />
         
             {
-                usama.map((elem) => {
+                usama.slice(0,5).map((elem) => {
                     return(
                         <div key={elem.id}>
                             <h6>ID: {elem.id}</h6>
