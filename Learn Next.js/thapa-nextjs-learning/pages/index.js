@@ -45,9 +45,11 @@ export default function Home({usama}) {
                 usama.slice(0,5).map((elem) => {
                     return(
                         <div key={elem.id}>
-                            <h6>ID: {elem.id}</h6>
-                            <h5>TITLE: {elem.title}</h5>
-                            <h5>BODY: {elem.body}</h5>
+                            <Link href={`/blog/${elem.id}`} passHref>
+                                <h6>ID: {elem.id}</h6>
+                            </Link>
+                            {/* <h5>TITLE: {elem.title}</h5>
+                            <h5>BODY: {elem.body}</h5> */}
                         </div>
                     );
                 })
