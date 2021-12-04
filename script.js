@@ -140,3 +140,5 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 // === only processed if both sides have same dataTypes     1 === '1'  => FALSE
 
 // Template Literals (Template Strings) ``      Expression Interpolation `This is ${myVar}`
+
+// JSON.stringify(value, replacer, space)
