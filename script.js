@@ -132,6 +132,10 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 
 // asnyc await  =>  Non-Blocking JS ko Blocking JS karna (JS ki Nature Change karna = Asynchronous ko kuch had tak Synchronous banana). yani kisi jagah cheezo ko sequence wise run karvana agarchy us ny time lagana jaisy files reading mein lekin hum chahty hain keh jab aik complete run ho jye then dosri chaly
 
+// JavaScript is a Single-Threaded Synchronous Programming Language. It means that the main thread where JavaScript code is run, runs in one line at a time manner and there is no possibility of running code in parallel.
+// Event Loop gives us an illusion of being multi-threaded even though it is single-threaded. callback functions / setTimeout() / DOM / AJAX API Calls Execution Stack sy nikal kar Web API mein chaly jaty hain aur phir Event/Message Queue mein save hoty hain jab Stack empty ho jata hai tab yeh queue sy stack mein move ho jaty hain aur output dety hain... This cycle is called the event loop and this is how JavaScript manages its events.
+// setTimeout() JS Engine mein nahi rehta isko hum JS Runtime py access karty hain iska asal Environment Web APIs hai jahan yeh apni execution complete karta hai then Message/Event Queue mein chala jata hai phir jab Execution Stack empty hota hai event loop isy queue sy stack mein move kar deta ha output show karny ky liye...
+
 // .map  =>  koi bhi kaam Array ky har individual index/element par karna aur last mein aik complete array return. Original Array not effected.
 
 // .reduce   Array Method
