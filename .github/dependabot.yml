@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/Learn GraphQL/graphql-course-code/server" # Location of package manifests
+    directory: "/React-Native/RNcli" # Location of package manifests
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
