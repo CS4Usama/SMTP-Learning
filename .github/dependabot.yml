@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/react-redux-firebase" # Location of package manifests
+    directory: "/firebase-learning" # Location of package manifests
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
