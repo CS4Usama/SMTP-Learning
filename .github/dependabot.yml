@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/moreExtra/3 Progress Bars - when one inc others dec automatically acc. to 100/zapp" # Location of package manifests
+    directory: "/Learn GraphQL/graphql-course-code/client" # Location of package manifests
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
