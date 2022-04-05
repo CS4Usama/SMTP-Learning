@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/moreExtra/3 Progress Bars - when one inc others dec automatically acc. to 100/zapp/package-lock.json" # Location of package manifests
+    directory: "/moreExtra/3 Progress Bars - when one inc others dec automatically acc. to 100/zapp/package.json" # Location of package manifests
     schedule:
       interval: "daily"
     open-pull-requests-limit: 10
