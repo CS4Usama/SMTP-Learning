@@ -146,3 +146,5 @@ console.log(wait());    // can be a backend response, API sy Data call kiya time
 // Template Literals (Template Strings) ``      Expression Interpolation `This is ${myVar}`
 
 // JSON.stringify(value, replacer, space)
+
+// Arrow Function mein this Keyword ka scope apny he function ka hota hai, jab keh simple Function mein this Keyword ka scope window Object ka hota hai.
