@@ -1,0 +1,9 @@
+app  =>  user  =>  identity + access (who the user + what permissions has) (authentication + authorization)
+
+Authentication in Next.js:
+Client-Side         Server-Side         API Routes
+
+persist data  =>  database
+
+getStaticProps() => runs at build time
+getServerSideProps() => runs for every incoming request and we can take information about that incoming request
