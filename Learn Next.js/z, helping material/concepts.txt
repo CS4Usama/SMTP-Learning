@@ -1,0 +1,54 @@
+app  =>  user  =>  identity + access (who the user + what permissions has) (authentication + authorization)
+
+Authentication in Next.js:
+Client-Side         Server-Side         API Routes
+
+persist data  =>  database
+
+getStaticProps() => runs at build time
+getServerSideProps() => runs for every incoming request and we can take information about that incoming request
+
+-----------
+
+React.js => Library (Client-Side JavaScript):
+    needs different Libraries for different purposes like routing, auth, etc...
+
+Next.js => Framework (Full-Stack):
+    Framework is bigger than library and has more features, focusing on more things instead of a single one.
+    Framework built on a library enhances library core features out of the box like Routing and doesn't need
+    to reinvent the wheel and third-party libraries. You still write React Code, components, state, etc
+    next.js just enhance the previous features and adds more
+
+
+NEXT.js KEY FEATURES and BENEFITS:>
+    Server-Side (Pre-) Rendering:   Preparing page content on the server instead client, React mein Data
+                                    Rendering client-side py hoti hai to jab server sy browser (client) mein
+                                    data aata to initially loading state mein rehta hai jab tak load na ho
+                                    proper (a flickering page for a fraction of a second), yani bhot he thora
+                                    sa intazar karna parta, UX nahi acha, bad SEO. Admin Panel jo login hony
+                                    ky baad chalta hai wahan SEO matter nai karti kiyon keh search engine nahi
+                                    dekhta is dashboard ko (user-specific), public-facing pages with a lot of
+                                    content should be SEOed. Jab Request hit ki jati hai to Data fetching server
+                                    py he ho jati aur hamein as a result, client-side py finished page milta hai
+                                    (user aur crawler ko). Page Flickering is eliminated and search engines can
+                                    see Page Contents. Allow Re-Rendering of react pages and components on a
+                                    server. React ky pas bhi built-in features hain yeh lekin unhain handle
+                                    karna mushkil aur extra setup chahye.
+
+    File-Based Routing:         Illusion to have multiple pages. jaisy HTML mein files ka naam he route hota tha.
+
+    Full-Stack Capabilities:    Client-Side Code with Server-Side Pre-Rendering, Standalone Backend Code
+                                We stay in one project and don't have to build a standalone rest api project but
+                                instead, we work on one project.
+
+
+npm (node.js) De-Facto Standard Tool for installing and managing JavaScript Libraries.
+
+page load hoga to state lost ho jaye gi react, redux state... aur single page application ka mqsd he khatam
+Link request send karna aur new HTML page ko get karna is pory process ko prevent karta hai aur apny tareeqy
+sy handle karta hai, loaded components ko re-render ya load kar ky aur URL change kar ky, lagta aisy keh new
+page visit kiya lekin haqeeqat mein aap single page application ky environment mein he hain.
+Website ky internal links ky Link ka tag use karna...
+
+pages ky folder mein..:>
+folder/index.js => folder-name (route)             folder/name.js => folder-name/name (route)
