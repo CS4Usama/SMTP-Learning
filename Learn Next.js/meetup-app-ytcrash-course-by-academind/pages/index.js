@@ -1,24 +1,25 @@
+import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import MeetupList from '../components/meetups/MeetupList';
 import { MongoClient } from 'mongodb';
 
 
-const DUMMY_MEETUPS = [
-    {
-        id: 1,
-        title: 'Usama',
-        image: 'https://image.shutterstock.com/image-vector/team-communication-abstract-concept-vector-600w-1860019639.jpg',
-        address: 'Address 1',
-        description: 'Description 1'
-    },
-    {
-        id: 2,
-        title: 'Cyber Hawk',
-        image: 'https://image.shutterstock.com/image-vector/team-communication-abstract-concept-vector-600w-1860019639.jpg',
-        address: 'Address 2',
-        description: 'Description 2'
-    }
-];
+// const DUMMY_MEETUPS = [
+//     {
+//         id: 1,
+//         title: 'Usama',
+//         image: 'https://image.shutterstock.com/image-vector/team-communication-abstract-concept-vector-600w-1860019639.jpg',
+//         address: 'Address 1',
+//         description: 'Description 1'
+//     },
+//     {
+//         id: 2,
+//         title: 'Cyber Hawk',
+//         image: 'https://image.shutterstock.com/image-vector/team-communication-abstract-concept-vector-600w-1860019639.jpg',
+//         address: 'Address 2',
+//         description: 'Description 2'
+//     }
+// ];
 
 
 export default function HomePage(props) {
@@ -31,7 +32,13 @@ export default function HomePage(props) {
     empty dependency array => whenever component is first rendered but never thereafter */
 
     return (
-        <MeetupList meetups={props.meetups} />
+        <>
+            <Head>
+                <title>Next.js Meetups</title>
+                <meta name='description' content='Browse a huge list of highly active Next.js / React.js meetups!' />
+            </Head>
+            <MeetupList meetups={props.meetups} />
+        </>
     );
 }
 
@@ -56,7 +63,7 @@ export async function getStaticProps() {
         },
         // Incremental Static Generation => itny seconds baad data update hoga re-fetch
         // re-pre-generated on the server after deployment, bar bar deploy ya build nahi karna parta
-        revalidate: 10      // validate on every x seconds
+        revalidate: 1      // validate on every x seconds
     };
 }
 

@@ -1,16 +1,23 @@
+import Head from 'next/head';
 import MeetupDetail from '../../components/meetups/MeetupDetail';
 import { MongoClient, ObjectId } from 'mongodb';
 
 
 export default function MeetupDetails(props) {
     return (
-        <MeetupDetail
-            // image='https://image.shutterstock.com/image-vector/team-communication-abstract-concept-vector-600w-1860019639.jpg'
-            image = {props.meetupData.image}
-            title = {props.meetupData.title}
-            address = {props.meetupData.address}
-            description = {props.meetupData.description}
-        />
+        <>
+            <Head>
+                <title>{props.meetupData.title}</title>
+                <meta name='description' content={props.meetupData.description} />
+            </Head>
+            <MeetupDetail
+                // image='https://image.shutterstock.com/image-vector/team-communication-abstract-concept-vector-600w-1860019639.jpg'
+                image = {props.meetupData.image}
+                title = {props.meetupData.title}
+                address = {props.meetupData.address}
+                description = {props.meetupData.description}
+            />
+        </>
     );
 }
 
@@ -28,7 +35,7 @@ export async function getStaticPaths() {
             anything except below values like id=3 or id=1u23io it will get a 404 error */
         /*  fallback: true => next.js would try to generate a page for this meetupId dynamically on the server
             for the incoming request whether the id is correct or not */
-        fallback: false,
+        fallback: 'blocking',
         paths: meetups.map(meetup => ({
             params: {
                 meetupId: meetup._id.toString()

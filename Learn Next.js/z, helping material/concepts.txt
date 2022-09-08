@@ -75,6 +75,7 @@ useRouter Hook sirf React Components mein use kar skty hain getStaticProps() ya 
 getStaticPaths() => which dynamic values this page should be pre-generated, getStaticProps() har page request
                     py chaly gi aur getStaticPaths() data fetch kary ga har meetupId ka aur props return hoon
                     gi getStaticProps() ki taraf sy...
+                    Which Instance of Dynamic Page
 
 
 API Routes =>   Don't return html page but which are instead about accepting incoming http request (all types)
