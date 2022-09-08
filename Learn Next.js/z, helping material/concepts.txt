@@ -5,10 +5,17 @@ Client-Side         Server-Side         API Routes
 
 persist data  =>  database
 
-getStaticProps() => runs at build time
+Static Site Generation (SSG):>
+    getStaticProps() => runs at build time, sirf pages ky folder ky andar use karain,
+    sab sy pehly props run karvata hai async await sy promise jab tak resolve na ho,
+    na client aur na he server py code execute hota just build time py hota
+    Data cached and Reused it is better for auth.
 getServerSideProps() => runs for every incoming request and we can take information about that incoming request
+                        credentials wagera is mein run karvaty hain takeh expose na hoon users ko, never run
+                        code on client-side.
 
 -----------
+https://youtu.be/MFuwkrseXVE
 
 React.js => Library (Client-Side JavaScript):
     needs different Libraries for different purposes like routing, auth, etc...
@@ -52,3 +59,27 @@ Website ky internal links ky Link ka tag use karna...
 
 pages ky folder mein..:>
 folder/index.js => folder-name (route)             folder/name.js => folder-name/name (route)
+
+
+PRE-RENDERING PROBLEM:>
+    useEffect() mein data fetching jab hoti to pehli bar null ya empty render hota because of the initial state
+    of a component aur 2sri bar proper data render ho ky fetch hota hai lekin html page ky source mein woh
+    data pehli dafa he jata hai yani search engine mein seo problem paida hoti is tarah iska solution next.js
+    mein hai getStaticProps()
+isi liye jab server sy data na aana ho tab useEffect() use na karain yani jab data static ya dummy ho khud
+sy diya hova...
+
+useRouter Hook sirf React Components mein use kar skty hain getStaticProps() ya getServerSideProps() jo keh
+(next.js ky hain) mein nahi
+
+getStaticPaths() => which dynamic values this page should be pre-generated, getStaticProps() har page request
+                    py chaly gi aur getStaticPaths() data fetch kary ga har meetupId ka aur props return hoon
+                    gi getStaticProps() ki taraf sy...
+
+
+API Routes =>   Don't return html page but which are instead about accepting incoming http request (all types)
+                with json data attached to it. Store data in db and then retrieve or return (api endpoints).
+                Folder name api, Receive js Return js. File name act as path segments in url. Only runs on the
+                server, so instead of writing react code write server-side code. Code never runs nor exposed
+                on the client-side, so we can use credentials without compromising them. Whenever request send
+                functions triggered.
