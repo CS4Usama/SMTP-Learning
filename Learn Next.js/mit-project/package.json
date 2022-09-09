@@ -1,0 +1,26 @@
+{
+  "name": "mit-project",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "next": "12.3.0",
+    "pg": "^8.8.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-toastify": "^9.0.8"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.3.0"
+  }
+}
