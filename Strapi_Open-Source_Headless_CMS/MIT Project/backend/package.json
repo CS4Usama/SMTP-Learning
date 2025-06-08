@@ -13,7 +13,7 @@
   "dependencies": {
     "@strapi/plugin-i18n": "4.6.1",
     "@strapi/plugin-users-permissions": "4.25.22",
-    "@strapi/strapi": "4.25.22",
+    "@strapi/strapi": "5.15.0",
     "pg": "8.6.0",
     "strapi-plugin-magic": "^0.9.0",
     "stripe": "^11.10.0"
