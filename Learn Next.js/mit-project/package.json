@@ -20,7 +20,7 @@
     "react-toastify": "^9.0.8"
   },
   "devDependencies": {
-    "eslint": "7.32.0",
+    "eslint": "10.5.0",
     "eslint-config-next": "12.3.0"
   }
 }
